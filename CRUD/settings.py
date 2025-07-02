@@ -117,7 +117,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_URL='/login/'
-ALLOWED_HOSTS = ['studentmanagementsystem.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['studentmanagementsystem-1.onrender.com', '127.0.0.1', 'localhost']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
