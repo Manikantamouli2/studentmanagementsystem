@@ -1,0 +1,23 @@
+{% extends "crud/base.html" %}
+
+{% block content1 %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+<div class="row m-4">
+    <div class="col">
+        <h3> Welcome to Student Management System </h3>
+        <h5>Core Features: </h5>
+        <ul>
+            <li><b>User Authentication:</b> Securely manage access with user authentication, ensuring that only authorized individuals can access and modify student data.</li>
+            <li><b>Student Records Management:</b> Create, view, update, and delete student profiles effortlessly.</li>
+            <li><b>Efficient CRUD Operations:</b> Perform essential CRUD operations to maintain up-to-date and accurate student information.</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock content1 %}

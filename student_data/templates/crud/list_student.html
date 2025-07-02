@@ -1,0 +1,82 @@
+{% extends "crud/base.html" %}
+{% block content1 %}
+<table  class="table table-hover mt-3">
+    <tr>
+        <th> ID</th>
+        <th> First Name </th>
+        <th> Last Name</th>
+        <th> Email Id</th>
+        <th> Phone</th>
+        <th> Branch</th>
+        <th> Action</th>
+    </tr>
+
+    {%  for st in student %}
+
+    <tr>
+        <td> {{st.id}} </td>
+        <td> {{st.fname}} </td>
+        <td> {{st.lname}} </td>
+        <td> {{st.email}} </td>
+        <td> {{st.phone}} </td>
+        <td> {{ st.branch }} </td>
+        <td>
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal{{st.id}}" ><i class="fa-solid fa-circle-info"></i> view</button>
+          
+
+
+<div class="modal fade" id="viewModal{{st.id}}" tabindex="-1"  aria-labelledby="viewModalLabel{{st.id}}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewModalLabel{{st.id}}">Student:{{st.fname}} {{st.lname}} </h5>
+                            <button type="button" class="btn-Close" data-bs-dismiss="modal" 
+                            aria-label="Close" ></button>
+                        </div>
+                        <div class="modal-body">
+                        <ul>
+                            <li> <strong> Student id:</strong> {{st.id}} </li>
+                            <li> <strong> Student First Name:</strong> {{st.fname}} </li>
+                            <li> <strong> Student Last Name:</strong> {{st.lname}} </li>
+                            <li> <strong> Student Email st.id :</strong> {{st.email}} </li>
+                            <li> <strong> Student phone no:</strong> {{st.phone}} </li>
+                            <li> <strong> Student Branch:</strong> {{st.branch}} </li>
+                        </ul>
+                        </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+            <a href="{% url 'update' st.id %}" class="btn btn-warning btn-sm">Update</a>
+            <button type="button" claSS="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{st.id}}">delete</button>
+            <div class="modal fade" id="deleteModal{{st.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{st.id}}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel{{st.id}}">Confirm Deletion</h5>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete the student?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                            <form action="{% url 'delete' st.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </table>
+
+
+{% endblock content1 %}
