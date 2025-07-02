@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-3+eq43-k!k-#lgi2r=1!u=cu-ohmlv!&4!o)gyw9)@gd5(ieux
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = ['studentmanagementsystem-1-pf2e.onrender.com', '127.0.0.1', 'localhost']
 
 
 
@@ -116,7 +117,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_URL='/login/'
-ALLOWED_HOSTS = ['studentmanagementsystem-1.onrender.com', '127.0.0.1', 'localhost']
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
